@@ -3,14 +3,36 @@ import ReactDOM from "react-dom/client";
 import { NextUIProvider } from "@nextui-org/react";
 import App from "./App";
 import "./index.css";
+import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+// Type assertion for `getElementById` to ensure `root` is not null
+const rootElement = document.getElementById("root") as HTMLElement;
+
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <NextUIProvider>
+        <main className="dark text-foreground bg-background">
+          <App />
+        </main>
+      </NextUIProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
+
+// import React from "react";
+// import ReactDOM from "react-dom/client";
+// import { NextUIProvider } from "@nextui-org/react";
+// import App from "./App";
+// import "./index.css";
+
+// ReactDOM.createRoot(document.getElementById("root")).render(
+//   <React.StrictMode>
+//     <BrowserRouter>
+//       <App />
+//     </BrowserRouter>
+//   </React.StrictMode>
+// );
 
 // import { React } from "react";
 // import ReactDOM from "react-dom/client";
